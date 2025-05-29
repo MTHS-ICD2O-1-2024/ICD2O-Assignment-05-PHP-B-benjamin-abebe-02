@@ -30,27 +30,24 @@
 
         </div>
         <div class="center-content">
-          <div class="page-content">Enter a number!</div>
+          <div class="page-content">Results</div>
           <br />
-
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="user-input" name="n">
-            <!-- mdl-textfield__label -->
-            <label class="mdl-textfield__label" for="user-input">Number</label>
-            <!-- class "mdl-textfield__error" -->
-            <span class="mdl-textfield__error">Input is not a number</span>
-          </div>
-          <br /><br />
-
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             type="submit">
-            Calculate sum of square
-          </button>
+            Return
+          </a>
           <br /><br />
+          <?php
+          $n = intval($_GET["n"]); // get input and convert to integer
+          $sum = 0;
 
-          <div class="page-content-answer">
-            <div id="answer"></div>
-          </div>
+          for ($i = 1; $i <= $n; $i++) {
+            $sum += $i * $i;
+          }
+
+          // display the answer
+          echo "<p>The sum of squares of the first $n number is: $sum .</p>"
+          ?>
         </div>
     </form>
     </main>
